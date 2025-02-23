@@ -28,7 +28,7 @@ pipeline {
                 }
                 echo "Running Docker Container..."
                 bat "docker rm -f csi401-frontend-run || true"
-                bat "docker run -d --name csi401-frontend-run -p 52001:3000 csi401-frontend:latest"
+                bat "docker run -d --name csi401-frontend-run -p 54100:3000 csi401-frontend:latest"
                 echo "Docker Image to Running Container Success"
             }
         }
