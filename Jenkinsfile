@@ -1,6 +1,20 @@
 pipeline {
     agent any
     
+    stage ('AUTOMATION TEST'){
+  container('robotframework') {
+    script {
+      sh """
+        robot --nostatusrc -F robot -L TRACE -P libs -v DEVICE:* sit_tests
+        rebot --nostatusrc --removekeywords all -l NONE -r NONE -o output.xml output.xml
+      """
+    }
+    }
+    
+
+
+
+    }
     stages {
         stage('Clone Repository') {
             steps {
